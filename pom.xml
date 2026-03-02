@@ -10,7 +10,8 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.4.RELEASE</version>
+    <version>1.5.22.RELEASE</version>
+      <relativePath></relativePath>
   </parent>
   <name>petclinic</name>
 
@@ -86,6 +87,7 @@
     <dependency>
       <groupId>org.ehcache</groupId>
       <artifactId>ehcache</artifactId>
+        <version>3.2.3</version>
     </dependency>
 
     <!-- webjars -->
@@ -122,6 +124,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>1.5.22.RELEASE</version>
         <executions>
           <execution>
             <!-- Spring Boot Actuator displays build-related information
