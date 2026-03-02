@@ -65,7 +65,7 @@ class PetController {
         dataBinder.setValidator(new PetValidator());
     }
 
-    @GetMapping("/pets/new")
+    @RequestMapping("/pets/new")
     public String initCreationForm(Owner owner, ModelMap model) {
         Pet pet = new Pet();
         owner.addPet(pet);
@@ -73,7 +73,7 @@ class PetController {
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
 
-    @PostMapping("/pets/new")
+    @RequestMapping("/pets/new")
     public String processCreationForm(Owner owner, @Valid Pet pet, BindingResult result, ModelMap model) {
         if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null){
             result.rejectValue("name", "duplicate", "already exists");
@@ -88,14 +88,14 @@ class PetController {
         }
     }
 
-    @GetMapping("/pets/{petId}/edit")
+    @RequestMapping("/pets/{petId}/edit")
     public String initUpdateForm(@PathVariable("petId") int petId, ModelMap model) {
         Pet pet = this.pets.findById(petId);
         model.put("pet", pet);
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
 
-    @PostMapping("/pets/{petId}/edit")
+    @RequestMapping("/pets/{petId}/edit")
     public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, ModelMap model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
