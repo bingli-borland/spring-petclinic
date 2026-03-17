@@ -34,9 +34,16 @@
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
 
+      <bes.version>9.5.5.027</bes.version>
+
   </properties>
 
   <dependencies>
+      <dependency>
+          <groupId>com.bes.appserver</groupId>
+          <artifactId>bes-lite-spring-boot-1.x-starter</artifactId>
+          <version>${bes.version}</version>
+      </dependency>
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
