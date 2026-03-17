@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -53,14 +54,14 @@ class OwnerController {
         dataBinder.setDisallowedFields("id");
     }
 
-    @RequestMapping("/owners/new")
+    @RequestMapping(value = "/owners/new", method =  RequestMethod.GET)
     public String initCreationForm(Map<String, Object> model) {
         Owner owner = new Owner();
         model.put("owner", owner);
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
-    @RequestMapping("/owners/new")
+    @RequestMapping(value = "/owners/new", method =   RequestMethod.POST)
     public String processCreationForm(@Valid Owner owner, BindingResult result) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
@@ -101,14 +102,14 @@ class OwnerController {
         }
     }
 
-    @RequestMapping("/owners/{ownerId}/edit")
+    @RequestMapping(value = "/owners/{ownerId}/edit", method = RequestMethod.GET)
     public String initUpdateOwnerForm(@PathVariable("ownerId") int ownerId, Model model) {
         Owner owner = this.owners.findById(ownerId);
         model.addAttribute(owner);
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
-    @RequestMapping("/owners/{ownerId}/edit")
+    @RequestMapping(value = "/owners/{ownerId}/edit", method =  RequestMethod.POST)
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable("ownerId") int ownerId) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
