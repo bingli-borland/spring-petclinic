@@ -41,6 +41,16 @@
           <artifactId>bes-lite-spring-boot-1.x-starter</artifactId>
           <version>${bes.version}</version>
       </dependency>
+      <dependency>
+          <groupId>com.bes.appserver</groupId>
+          <artifactId>bes-jdbcra-spring-boot-starter</artifactId>
+          <version>${bes.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>com.bes.appserver</groupId>
+          <artifactId>bes-jdbcra</artifactId>
+          <version>${bes.version}</version>
+      </dependency>
     <!-- Spring and Spring Boot dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
